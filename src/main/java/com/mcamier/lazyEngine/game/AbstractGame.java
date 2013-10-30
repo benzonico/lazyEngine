@@ -1,17 +1,17 @@
-package com.mcamier.lazyEngine.game.impl;
+package com.mcamier.lazyEngine.game;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import com.mcamier.lazyEngine.game.IGame;
+import com.mcamier.lazyEngine.interfaces.*;
 
 /**
  * Hello world!
  * 
  */
-public abstract class AbstractGame implements IGame {
+public abstract class AbstractGame implements IUpdatable, IDrawable, IGameObject {
 	
 	private long lastFPS;
 	private long lastFrame;
@@ -24,7 +24,7 @@ public abstract class AbstractGame implements IGame {
 		lastFPS = getTime(); // set lastFPS to current Time
 		this.createDisplay();
 		
-		this.initialization();
+		this.initialize();
 		
 		while (!Display.isCloseRequested()) {
 			this.updateFPS();
@@ -35,11 +35,8 @@ public abstract class AbstractGame implements IGame {
 		}
 
 		Display.destroy();
+		this.destroy();
 	}
-
-	public abstract void initialization();
-	public abstract void update(int deltaTimeMillis);
-	public abstract void draw(int deltaTimeMillis);
 
 	private final void createDisplay() {
 		try {

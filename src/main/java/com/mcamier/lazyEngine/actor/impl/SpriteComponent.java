@@ -3,10 +3,10 @@ package com.mcamier.lazyEngine.actor.impl;
 import org.newdawn.slick.opengl.Texture;
 
 import com.mcamier.lazyEngine.actor.ComponentTypeEnum;
-import com.mcamier.lazyEngine.actor.Drawable;
 import com.mcamier.lazyEngine.actor.IActor;
+import com.mcamier.lazyEngine.interfaces.IDrawable;
 
-public class SpriteComponent extends Component implements Drawable{
+public class SpriteComponent extends Component implements IDrawable {
 
 	private Texture sprite;
 	
@@ -19,7 +19,7 @@ public class SpriteComponent extends Component implements Drawable{
 		return ComponentTypeEnum.RENDER;
 	}
 
-	public void draw(long deltaTime) {}
+	public void draw(int deltaTime) {}
 
 	public final Texture getSprite() {
 		return sprite;
@@ -38,5 +38,4 @@ public class SpriteComponent extends Component implements Drawable{
 		// TODO Auto-generated method stub
 		
 	}
-
 }
