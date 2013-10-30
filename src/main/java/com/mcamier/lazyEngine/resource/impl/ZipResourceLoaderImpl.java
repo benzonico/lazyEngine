@@ -1,7 +1,9 @@
 package com.mcamier.lazyEngine.resource.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.AbstractMap;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -16,13 +18,13 @@ import com.mcamier.lazyEngine.resource.IResourceLoader;
 
 public final class ZipResourceLoaderImpl implements IResourceLoader {
 
-	private String zipFilePath;
+	private URL zipFilePath;
 	
 	private Set<String> resourcesAvailable = new HashSet<String>();
 
 	
-	public ZipResourceLoaderImpl(String aPathToZipFile) {
-		this.zipFilePath = aPathToZipFile;
+	public ZipResourceLoaderImpl(URL zipPath) {
+		this.zipFilePath = zipPath;
 	}
 
 	
@@ -56,10 +58,12 @@ public final class ZipResourceLoaderImpl implements IResourceLoader {
 		return file;
 	}
 	
-	private ZipFile tryToReturnZipFromPath(final String pathToZipFile) {
+	private ZipFile tryToReturnZipFromPath(final URL pathToZipFile) {
 		ZipFile zipFile = null;
+		File file = null;
 		try {
-			zipFile = new ZipFile(pathToZipFile);
+			file = new File(pathToZipFile.toURI());
+			zipFile = new ZipFile(file);
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.exit(0);
