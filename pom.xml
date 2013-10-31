@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -34,7 +35,6 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		
 		<dependency>
 			<groupId>gov.nist.math.jama</groupId>
 			<artifactId>gov.nist.math.jama</artifactId>
@@ -89,7 +89,6 @@
 					<downloadJavadocs>true</downloadJavadocs>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>com.googlecode.mavennatives</groupId>
 				<artifactId>maven-nativedependencies-plugin</artifactId>
@@ -120,7 +119,6 @@
 				</configuration>
 			</plugin>
 			
-			
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
@@ -138,7 +136,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
 		<pluginManagement>
 			<plugins>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
@@ -173,7 +170,6 @@
 						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
-				
 			</plugins>
 		</pluginManagement>
 	</build>
