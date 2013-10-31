@@ -29,11 +29,19 @@ public class SpriteComponent extends Component implements IDrawable {
 		this.sprite = sprite;
 	}
 
-	public void update() {
+	@Override
+	public void initialize() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public void update(int deltaTime) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 		

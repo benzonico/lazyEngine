@@ -6,8 +6,10 @@ import java.util.Map;
 import com.mcamier.lazyEngine.actor.ComponentTypeEnum;
 import com.mcamier.lazyEngine.actor.IActor;
 import com.mcamier.lazyEngine.actor.IComponent;
+import com.mcamier.lazyEngine.interfaces.IGameObject;
+import com.mcamier.lazyEngine.interfaces.IUpdatable;
 
-public class Actor implements IActor {
+public class Actor implements IActor, IGameObject, IUpdatable {
 	
 	private Map<ComponentTypeEnum, IComponent> components = new HashMap<ComponentTypeEnum, IComponent>();
 
@@ -26,7 +28,14 @@ public class Actor implements IActor {
 		this.components.put(component.getType(), component);
 	}
 
-	public void update(long deltaTime) {
+	@Override
+	public void initialize() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(int deltaTime) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -34,6 +43,4 @@ public class Actor implements IActor {
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}
-
-	
 }
