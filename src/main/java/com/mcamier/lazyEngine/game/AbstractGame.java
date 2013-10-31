@@ -11,7 +11,7 @@ import com.mcamier.lazyEngine.interfaces.*;
  * Hello world!
  * 
  */
-public abstract class AbstractGame implements IUpdatable, IDrawable, IGameObject {
+public abstract class AbstractGame implements IDrawable, IGameObject {
 	
 	private long lastFPS;
 	private long lastFrame;

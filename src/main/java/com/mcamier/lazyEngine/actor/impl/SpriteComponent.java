@@ -40,10 +40,10 @@ public class SpriteComponent extends Component implements IDrawable {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		
+		super.destroy();
+		this.sprite = null;
 	}
 }

@@ -20,18 +20,17 @@ public class AnimationComponent extends SpriteComponent {
 		active = true;
 	}
 
-	public void update(long deltaTime) {
+	public void update(int deltaTime) {
 		if(active) {
 			elapsedTime += deltaTime;
 			if(elapsedTime >= frameDuration) {
 				currentFrame++;
-				
+				elapsedTime = 0;
 				if(currentFrame >= frameCount) {
 					currentFrame = 0;
-				}
-				
-				if(!loop) {
-					active = false;
+					if(!loop) {
+						active = false;
+					}
 				}
 			}
 		}

@@ -1,17 +1,17 @@
 package com.mcamier.lazyEngine.actor.impl;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.mcamier.lazyEngine.actor.ComponentTypeEnum;
 import com.mcamier.lazyEngine.actor.IActor;
-import com.mcamier.lazyEngine.actor.IComponent;
 import com.mcamier.lazyEngine.interfaces.IGameObject;
-import com.mcamier.lazyEngine.interfaces.IUpdatable;
 
-public class Actor implements IActor, IGameObject, IUpdatable {
+public class Actor implements IActor, IGameObject {
 	
-	private Map<ComponentTypeEnum, IComponent> components = new HashMap<ComponentTypeEnum, IComponent>();
+	private Map<ComponentTypeEnum, Component> components = new HashMap<ComponentTypeEnum, Component>();
 
 	public Actor() 
 	{
@@ -20,27 +20,28 @@ public class Actor implements IActor, IGameObject, IUpdatable {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T extends IComponent> T getComponent(ComponentTypeEnum type) {
+	public <T extends Component> T getComponent(ComponentTypeEnum type) {
 		return (T)(this.components.get(type));
 	}
 	
-	public void putComponent(IComponent component) {
+	public void putComponent(Component component) {
 		this.components.put(component.getType(), component);
 	}
 
 	@Override
-	public void initialize() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void initialize() {}
 
 	@Override
 	public void update(int deltaTime) {
-		// TODO Auto-generated method stub
-		
+		Iterator<Entry<ComponentTypeEnum, Component>> componentsIterator = this.components.entrySet().iterator();
+		while(componentsIterator.hasNext()) {
+			Entry<ComponentTypeEnum, Component> entry = componentsIterator.next();
+			entry.getValue().update(deltaTime);
+		}
 	}
 
 	public void destroy() {
-		// TODO Auto-generated method stub
+		this.components.clear();
+		this.components = null;
 	}
 }

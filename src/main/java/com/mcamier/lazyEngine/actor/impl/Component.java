@@ -4,9 +4,8 @@ import com.mcamier.lazyEngine.actor.ComponentTypeEnum;
 import com.mcamier.lazyEngine.actor.IActor;
 import com.mcamier.lazyEngine.actor.IComponent;
 import com.mcamier.lazyEngine.interfaces.IGameObject;
-import com.mcamier.lazyEngine.interfaces.IUpdatable;
 
-public abstract class Component implements IComponent, IGameObject, IUpdatable {
+public abstract class Component implements IComponent, IGameObject {
 	
 	private IActor actor;
 	
@@ -17,7 +16,12 @@ public abstract class Component implements IComponent, IGameObject, IUpdatable {
 	
 	public IActor getActor() {
 		return this.actor;
-	}
+	} 
 	
 	public abstract ComponentTypeEnum getType();
+
+	@Override
+	public void destroy() {
+		this.actor = null;
+	}
 }

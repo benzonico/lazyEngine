@@ -55,11 +55,6 @@ public class TransformComponent extends Component {
 		this.rotation = rotation;
 	}
 
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	public void initialize() {
